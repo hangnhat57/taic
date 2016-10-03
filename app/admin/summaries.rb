@@ -28,7 +28,7 @@ index do
   actions
 end
 
-filter :customer_id
+filter :customer_id,as: :select,collection: proc { Customer.all }
 filter :Product
 filter :StartTime
 filter :EndTime
