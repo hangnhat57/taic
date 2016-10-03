@@ -1,4 +1,4 @@
-ActiveAdmin.register Customer do
+ActiveAdmin.register Customer,namespace: :admin do
 
 permit_params :email, :password, :password_confirmation,:name
 index do

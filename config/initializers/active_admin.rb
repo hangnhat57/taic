@@ -5,6 +5,7 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Active Taic"
+   config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/client', Rails.root)]
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -39,9 +40,18 @@ ActiveAdmin.setup do |config|
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.site_title = "Custom Admin Title"
-  #   end
+    config.namespace :admin do |admin|
+      admin.site_title = "Custom Admin Title"
+      admin.authentication_method = :authenticate_admin_user!
+      admin.current_user_method = :current_admin_user
+      admin.logout_link_path = :destroy_admin_user_session_path
+    end
+    config.namespace :client do |customer|
+      customer.site_title ="Customer page"
+      customer.authentication_method= :authenticate_customer!
+      customer.current_user_method = :current_customer
+      customer.logout_link_path = :destroy_customer_session_path
+    end
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
@@ -54,7 +64,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_admin_user!
+  #config.authentication_method = :authenticate_admin_user!
 
   # == User Authorization
   #
@@ -86,7 +96,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  #config.current_user_method = :current_admin_user
 
   # == Logging Out
   #
@@ -98,7 +108,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  #config.logout_link_path = :destroy_admin_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
