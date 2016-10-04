@@ -1,5 +1,5 @@
 ActiveAdmin.register Customer,namespace: :admin , as: "Customer"do
-menu label: 'Customer Management'
+menu label: 'Customer Management',:parent => "Customer Relationship Management"
 
 permit_params :email, :password, :password_confirmation,:name
 index do

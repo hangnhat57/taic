@@ -1,6 +1,7 @@
 ActiveAdmin.register Summary,namespace: :client do
   menu label: 'Usage Reporter'
 config.clear_action_items!
+config.remove_action_item(:new)
 scope_to :current_customer
 index do
   column :Product

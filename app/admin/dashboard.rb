@@ -10,7 +10,7 @@ columns do
       table_for Customer.all do |t|
         t.column("Name") { |customer| customer.name }
         t.column("Email") { |customer| customer.email }
-        
+
      end
   end
 end

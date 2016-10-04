@@ -1,6 +1,6 @@
 ActiveAdmin.register Month, as: "Month" do
 permit_params :name
-menu label: 'Monthly Management'
+menu label: 'Monthly Management',:parent => "Customer Relationship Management"
 
 
 # See permitted parameters documentation:
