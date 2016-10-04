@@ -1,5 +1,5 @@
 require 'csv'
-ActiveAdmin.register Summary ,as: "Usage Reporter"do
+ActiveAdmin.register Summary ,as: "Usage Reporters"do
   menu label: 'Usage Reporter Management'
 
  config.clear_action_items!
