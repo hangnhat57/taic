@@ -1,9 +1,17 @@
+class MyFooter < ActiveAdmin::Component
+  def build
+    super(id: "footer")
+    para "Copyright #{Date.today.year} TAIC"
+  end
+end
 ActiveAdmin.setup do |config|
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.view_factory.footer = MyFooter
+
   config.site_title = "Active Taic"
    config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/client', Rails.root)]
 
@@ -41,16 +49,18 @@ ActiveAdmin.setup do |config|
   # within a namespace:
   #
     config.namespace :admin do |admin|
-      admin.site_title = "Custom Admin Title"
+      admin.site_title = "TAIC staff pages"
       admin.authentication_method = :authenticate_admin_user!
       admin.current_user_method = :current_admin_user
       admin.logout_link_path = :destroy_admin_user_session_path
+      admin.batch_actions = true
     end
     config.namespace :client do |customer|
-      customer.site_title ="Customer page"
+      customer.site_title ="Client pages"
       customer.authentication_method= :authenticate_customer!
       customer.current_user_method = :current_customer
       customer.logout_link_path = :destroy_customer_session_path
+      customer.batch_actions = false
     end
   #
   # This will ONLY change the title for the admin section. Other
@@ -148,7 +158,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
+
 
   # == Controller Filters
   #

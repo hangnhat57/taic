@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'prawn'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
