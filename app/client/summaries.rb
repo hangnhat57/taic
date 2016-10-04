@@ -1,4 +1,4 @@
-ActiveAdmin.register Summary,namespace: :client,as: "Usage Reporter" do
+ActiveAdmin.register Summary,namespace: :client do
   menu label: 'Usage Reporter'
 config.clear_action_items!
 scope_to :current_customer
@@ -12,7 +12,7 @@ index do
   column   "End Time",:EndTime
   column   "Duration by hours",:Duration_hours
   column   "Duration by seconds",:Duration_second
-      
+
 
 
 end
