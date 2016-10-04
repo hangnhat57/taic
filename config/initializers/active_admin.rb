@@ -61,7 +61,7 @@ ActiveAdmin.setup do |config|
       customer.current_user_method = :current_customer
       customer.logout_link_path = :destroy_customer_session_path
       customer.batch_actions = false
-      customer.root_to = 'summaries#index'
+      customer.root_to = 'usage_reporters#index'
     end
   #
   # This will ONLY change the title for the admin section. Other
