@@ -7,14 +7,17 @@ ActiveAdmin.register Summary do
 
   collection_action :upload_csv do
     @customers = Customer.all
+    @months = Month.all
     render "admin/csv/upload_csv"
   end
   collection_action :import_csv, :method => :post do
-      Summary.import(params[:file], params[:customer_id])
+      Summary.import(params[:file], params[:customer_id],params[:month_id])
       redirect_to :action => :index, :notice => "CSV imported successfully!"
     end
 index do
+  selectable_column
   column  "Customer",:customer_id
+  column "Month",:month_id
   column   "Liscense ID",:LiscenseID
   column :Product
   column :Version
@@ -29,10 +32,15 @@ index do
 end
 
 filter :customer_id,as: :select,collection: proc { Customer.all }
+filter :month_id,as: :select,collection: proc { Month.all }
 filter :Product
 filter :StartTime
 filter :EndTime
-
-
+sidebar :help do
+  ul do
+    li "Date format : yyyy-mm-dd"
+    li "Contact: support@taic.vn for more info"
+  end
+end
 
 end

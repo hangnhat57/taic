@@ -2,7 +2,7 @@ ActiveAdmin.register Summary,namespace: :client do
 config.clear_action_items!
 scope_to :current_customer
 index do
-  selectable_column
+  column "Month",:month_id
   column :Product
   column :Version
   column :Amount
@@ -15,9 +15,14 @@ index do
 
 end
 
-
+filter :month_id,as: :select,collection: proc { Month.all }
 filter :Product
 filter :StartTime
 filter :EndTime
-
+sidebar :help do
+  ul do
+    li "Date format : yyyy-mm-dd"
+    li "Contact: support@taic.vn for more info"
+  end
+end
 end

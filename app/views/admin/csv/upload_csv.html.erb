@@ -1,8 +1,8 @@
 <%= form_tag import_csv_admin_summaries_path , multipart: true do %>
 
-  
+
   <%= file_field_tag :file,class:"btn btn-info btn-file"%></div>
   <%=select_tag :customer_id, options_from_collection_for_select(@customers, "id", "name")%>
-
+  <%=select_tag :month_id, options_from_collection_for_select(@months, "id", "name")%>
   <%= submit_tag "Import!"%>
 <% end %>
