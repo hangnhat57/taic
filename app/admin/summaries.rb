@@ -1,5 +1,7 @@
 require 'csv'
-ActiveAdmin.register Summary do
+ActiveAdmin.register Summary ,as: "Usage Reporter"do
+  menu label: 'Usage Reporter Management'
+
  config.clear_action_items!
   action_item :only => :index do
     link_to 'Upload CSV', :action => 'upload_csv'
@@ -16,8 +18,6 @@ ActiveAdmin.register Summary do
     end
 index do
   selectable_column
-  column  "Customer",:customer_id
-  column "Month",:month_id
   column   "Liscense ID",:LiscenseID
   column :Product
   column :Version

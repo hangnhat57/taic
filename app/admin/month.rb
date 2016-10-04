@@ -1,5 +1,8 @@
-ActiveAdmin.register Month do
+ActiveAdmin.register Month, as: "Month" do
 permit_params :name
+menu label: 'Monthly Management'
+
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,6 +15,11 @@ permit_params :name
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+sidebar :help do
+  ul do
+    li "Please add month follow format: Month Year"
+    li "Eg: July 2016"
+  end
+end
 
 end
