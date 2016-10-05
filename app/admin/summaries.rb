@@ -2,7 +2,7 @@ require 'csv'
 ActiveAdmin.register Summary do
   menu label: 'Usage Reporter Management'
 
- config.clear_action_items!
+ actions :index, :show, :create, :update, :edit, :destroy
   action_item :only => :index do
     link_to 'Upload CSV', :action => 'upload_csv'
   end

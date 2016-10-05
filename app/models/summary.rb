@@ -1,6 +1,6 @@
 require 'csv'
 class Summary < ApplicationRecord
-  belongs_to :customer,dependent: :destroy
+  belongs_to :customer
   belongs_to :month,dependent: :destroy
 
 
